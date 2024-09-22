@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Expense Title" required>
+    <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+    <input type="text" name="category" placeholder="Category" required>
+    <input type="file" name="receipt">
+    <button type="submit">Add Expense</button>
+</form>
+<h3>Your Expenses</h3>
+<ul>
+    {% for expense in expenses %}
+        <li>{{ expense.title }} - {{ expense.amount }} ({{ expense.category }})</li>
+    {% endfor %}
+</ul>
+{% endblock %}

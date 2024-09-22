@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Monthly Overview</h2>
+<div id="monthly-chart-container" class="mt-4">
+    <canvas id="monthlyExpenseChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const monthlyData = {{ monthly_data | tojson }};
+const ctx = document.getElementById('monthlyExpenseChart').getContext('2d');
+const monthlyChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: Object.keys(monthlyData), // Month Names
+        datasets: [{
+            label: 'Monthly Expenses',
+            data: Object.values(monthlyData), // Monthly Expense Data
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+{% endblock %}

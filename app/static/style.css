@@ -1,0 +1,29 @@
+body {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+#chart-container {
+    margin-top: 20px;
+}
+
+.expense-item {
+    transition: background-color 0.3s ease;
+}
+
+.expense-item:hover {
+    background-color: #e9ecef;
+}
